@@ -11,6 +11,8 @@ import inflect
 
 ServiceDepG = TypeVar("ServiceDepG", bound=BaseService)
 
+def create_deps(deps: list[callable]) -> list:
+    return [Depends(dep) for dep in deps]
 
 def router_factory(
     prefix: str,
@@ -28,7 +30,6 @@ def router_factory(
         prefix=prefix,
         tags=tags
     )
-    deps = [Depends(dep) for dep in dependencies.get("create", [])]
     resource = prefix.strip("/").replace("_", " ").capitalize()
     resource_singular = inflect.engine().singular_noun(resource) or resource
 
@@ -37,7 +38,7 @@ def router_factory(
             path="",
             response_model=read_schema,
             status_code=status.HTTP_201_CREATED,
-            dependencies=deps,
+            dependencies=create_deps(dependencies.get("create", [])),
             summary=f"Create {resource_singular}"
         )
         async def create_item(
@@ -51,7 +52,7 @@ def router_factory(
             path="",
             response_model=list[read_schema],
             status_code=status.HTTP_200_OK,
-            dependencies=deps,
+            dependencies=create_deps(dependencies.get("list", [])),
             summary=f"Get {resource}"
         )
         async def get_items(
@@ -65,7 +66,7 @@ def router_factory(
             path=f"/{{{id_name}}}",
             response_model=read_schema,
             status_code=status.HTTP_200_OK,
-            dependencies=deps,
+            dependencies=create_deps(dependencies.get("get", [])),
             summary=f"Get {resource_singular}"
         )
         async def get_item(
@@ -79,7 +80,7 @@ def router_factory(
             path=f"/{{{id_name}}}",
             response_model=read_schema,
             status_code=status.HTTP_200_OK,
-            dependencies=deps,
+            dependencies=create_deps(dependencies.get("patch", [])),
             summary=f"Patch {resource_singular}"
         )
         async def patch_item(
@@ -94,7 +95,7 @@ def router_factory(
         @router.delete(
             path=f"/{{{id_name}}}",
             status_code=status.HTTP_204_NO_CONTENT,
-            dependencies=deps,
+            dependencies=create_deps(dependencies.get("delete", [])),
             summary=f"Delete {resource_singular}"
         )
         async def delete_item(
