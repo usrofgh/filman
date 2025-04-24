@@ -15,14 +15,18 @@ v1_router = APIRouter(
     prefix="/v1"
 )
 
-v1_router.include_router(auth_router)
-v1_router.include_router(user_router)
-v1_router.include_router(category_router)
-v1_router.include_router(genre_router)
-v1_router.include_router(production_router)
-v1_router.include_router(trailer_router)
-v1_router.include_router(role_router)
-v1_router.include_router(rating_company_router)
-v1_router.include_router(country_router)
-v1_router.include_router(comment_router)
-v1_router.include_router(comment_reaction_router)
+include_router_list = [
+    auth_router,
+    user_router,
+    category_router,
+    genre_router,
+    production_router,
+    trailer_router,
+    role_router,
+    rating_company_router,
+    country_router,
+    comment_router,
+    comment_reaction_router
+]
+
+[v1_router.include_router(router) for router in include_router_list]
