@@ -1,4 +1,5 @@
 from fastapi import APIRouter, status
+
 from src.domains.auth.dependencies import AuthServiceDep
 from src.domains.auth.schemas import AccessToken, LoginSchema
 

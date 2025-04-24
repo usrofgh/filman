@@ -5,11 +5,7 @@ from pydantic import UUID4
 
 from src.core.base_exceptions import AlreadyExists, DoesNotExist
 from src.core.base_repository import BaseRepository, ModelG
-from src.core.generics import (
-    CreateSchemaG,
-    FilterSchemaG,
-    UpdateSchemaG
-)
+from src.core.generics import CreateSchemaG, FilterSchemaG, UpdateSchemaG
 
 RepositoryG = TypeVar("RepositoryG", bound=BaseRepository)
 

@@ -1,8 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, EmailStr, field_validator
-from pydantic import Field
-from pydantic import UUID4
+from pydantic import UUID4, BaseModel, EmailStr, Field, field_validator
 
 from src.domains.auth.exceptions import PasswordMismatch
 

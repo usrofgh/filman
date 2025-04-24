@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 
 from src.api.router_factory import router_factory
-from src.domains.auth.dependencies import get_current_admin_user, get_current_active_user
+from src.domains.auth.dependencies import get_current_active_user, get_current_admin_user
 from src.domains.comments.dependencies import CommentServiceDep
-from src.domains.comments.schemas import CommentReadSchema, CommentCreateSchema, CommentFilterSchema, \
-    CommentUpdateSchema
+from src.domains.comments.schemas import CommentCreateSchema, CommentFilterSchema, CommentReadSchema, CommentUpdateSchema
 
 comment_router: APIRouter = router_factory(
     prefix="/comments",

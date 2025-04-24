@@ -7,7 +7,7 @@ from jwt import InvalidTokenError
 
 from src.core.config import settings
 from src.core.security import oauth2_scheme
-from src.domains.auth.exceptions import CredentialsValidation, InactiveUser, Forbidden
+from src.domains.auth.exceptions import CredentialsValidation, Forbidden, InactiveUser
 from src.domains.auth.service import AuthService
 from src.domains.users.dependencies import UserRepositoryDep
 from src.domains.users.models import UserModel

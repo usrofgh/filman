@@ -1,10 +1,9 @@
 from abc import ABC
-from typing import Type, TypeVar
+from typing import Generic, TypeVar
 
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, delete, update
 from pydantic import UUID4
-from typing_extensions import Generic
+from sqlalchemy import delete, select, update
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.core.base_model import BaseModel
 
@@ -12,7 +11,7 @@ ModelG = TypeVar("ModelG", bound=BaseModel)
 
 
 class BaseRepository(ABC, Generic[ModelG]):
-    MODEL: Type[ModelG] = None
+    MODEL: type[ModelG] = None
 
     def __init__(self, db: AsyncSession):
         self._db = db

@@ -1,4 +1,5 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
+
 import jwt
 from asyncpg.pgproto.pgproto import timedelta
 from fastapi.security import OAuth2PasswordBearer
@@ -22,7 +23,7 @@ def get_password_hash(password: str) -> str:
 
 def create_access_token(data: dict, expires_delta: timedelta) -> str:
     to_encode = data.copy()
-    expire = datetime.now(timezone.utc) + expires_delta
+    expire = datetime.now(UTC) + expires_delta
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY.get_secret_value(), settings.ALGORITHM)
     return encoded_jwt

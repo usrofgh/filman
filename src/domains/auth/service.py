@@ -1,8 +1,7 @@
-from src.core.security import verify_password, generate_token
-from src.domains.auth.exceptions import IncorrectCredentials, InactiveUser
-from src.domains.auth.schemas import LoginSchema, AccessToken
+from src.core.security import generate_token, verify_password
+from src.domains.auth.exceptions import InactiveUser, IncorrectCredentials
+from src.domains.auth.schemas import AccessToken, LoginSchema
 from src.domains.users.repository import UserRepository
-
 
 
 class AuthService:

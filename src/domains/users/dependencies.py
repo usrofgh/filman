@@ -1,6 +1,6 @@
-from fastapi.params import Depends
 from typing import Annotated
 
+from fastapi.params import Depends
 
 from src.core.db import SessionDep
 from src.domains.users.repository import UserRepository

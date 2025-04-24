@@ -1,13 +1,13 @@
-from typing import TypeVar, Literal, Annotated
+from typing import Annotated, Literal, TypeVar
 
+import inflect
 from fastapi import APIRouter, Depends
-from fastapi.params import Query, Path
+from fastapi.params import Path, Query
 from pydantic import UUID4
 from starlette import status
 
 from src.core.base_service import BaseService
-from src.core.generics import ReadSchemaG, CreateSchemaG, FilterSchemaG, UpdateSchemaG
-import inflect
+from src.core.generics import CreateSchemaG, FilterSchemaG, ReadSchemaG, UpdateSchemaG
 
 ServiceDepG = TypeVar("ServiceDepG", bound=BaseService)
 

@@ -1,3 +1,5 @@
+from fastapi import APIRouter
+
 from src.api.v1.routes.auth import auth_router
 from src.api.v1.routes.categories import category_router
 from src.api.v1.routes.comment_reactions import comment_reaction_router
@@ -9,7 +11,6 @@ from src.api.v1.routes.rating_company import rating_company_router
 from src.api.v1.routes.roles import role_router
 from src.api.v1.routes.trailers import trailer_router
 from src.api.v1.routes.users import user_router
-from fastapi import APIRouter
 
 v1_router = APIRouter(
     prefix="/v1"

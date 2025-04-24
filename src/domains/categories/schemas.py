@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, Field
-from pydantic import UUID4
+from pydantic import UUID4, BaseModel, Field
 
 from src.domains.genres.schemas import GenreReadSchema
 

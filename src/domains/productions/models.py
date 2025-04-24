@@ -1,9 +1,10 @@
 from datetime import datetime
 
 from sqlalchemy import ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.types import Date
+
 from src.core.base_model import BaseModel
 from src.domains.associations.production_country import production_country_associations
 from src.domains.associations.production_genre import production_genre_associations

@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 
 from src.api.router_factory import router_factory
-from src.domains.auth.dependencies import get_current_admin_user, get_current_active_user
+from src.domains.auth.dependencies import get_current_active_user, get_current_admin_user
 from src.domains.roles.dependencies import RoleServiceDep
-from src.domains.roles.schemas import RoleReadSchema, RoleCreateSchema, RoleFilterSchema, RoleUpdateSchema
-
+from src.domains.roles.schemas import RoleCreateSchema, RoleFilterSchema, RoleReadSchema, RoleUpdateSchema
 
 role_router: APIRouter = router_factory(
     prefix="/roles",

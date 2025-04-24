@@ -5,7 +5,7 @@ from src.core.base_service import BaseService
 from src.core.security import get_password_hash
 from src.domains.users.models import UserModel
 from src.domains.users.repository import UserRepository
-from src.domains.users.schemas import UserFilterSchema, UserCreateDBSchema, UserCreateSchema, UserUpdateSchema
+from src.domains.users.schemas import UserCreateDBSchema, UserCreateSchema, UserFilterSchema, UserUpdateSchema
 
 
 class UserService(

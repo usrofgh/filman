@@ -3,7 +3,6 @@ from sqladmin import ModelView
 from src.domains.associations.production_person import ProductionPersonAssociation as PPA
 
 
-
 class ProductionPersonAdmin(ModelView, model=PPA):
     icon = "fa-solid fa-user-friends"
     name = "Production Person"

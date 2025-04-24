@@ -3,7 +3,6 @@ from sqladmin import ModelView
 from src.domains.associations.production_rating import ProductionRatingAssociation as PPA
 
 
-
 class ProductionRatingAdmin(ModelView, model=PPA):
     icon = "fa-solid fa-star"
     name = "Production Rating"

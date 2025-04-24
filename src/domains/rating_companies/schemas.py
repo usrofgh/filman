@@ -1,7 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel
-from pydantic import UUID4
+from pydantic import UUID4, BaseModel
 
 
 class RatingCompanyCreateSchema(BaseModel):

@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 
 from src.api.router_factory import router_factory
-from src.domains.auth.dependencies import get_current_admin_user, get_current_active_user
+from src.domains.auth.dependencies import get_current_active_user, get_current_admin_user
 from src.domains.productions.dependencies import ProductionServiceDep
-from src.domains.productions.schemas import ProductionReadSchema, ProductionCreateSchema, ProductionFilterSchema, \
-    ProductionUpdateSchema
+from src.domains.productions.schemas import ProductionCreateSchema, ProductionFilterSchema, ProductionReadSchema, ProductionUpdateSchema
 
 production_router: APIRouter = router_factory(
     prefix="/productions",

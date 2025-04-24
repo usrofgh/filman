@@ -1,9 +1,9 @@
 from datetime import datetime
+from uuid import uuid4
 
 from sqlalchemy import DateTime, func
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import UUID
-from uuid import uuid4
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
 class BaseModel(DeclarativeBase):

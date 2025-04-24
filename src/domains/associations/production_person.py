@@ -1,8 +1,8 @@
 from uuid import uuid4
 
 from sqlalchemy import ForeignKey, UniqueConstraint
-from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.core.base_model import BaseModel
 from src.domains.persons.models import PersonModel

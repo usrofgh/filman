@@ -3,9 +3,7 @@ from fastapi import APIRouter
 from src.api.router_factory import router_factory
 from src.domains.auth.dependencies import get_current_active_user, get_current_admin_user
 from src.domains.trailers.dependencies import TrailerServiceDep
-from src.domains.trailers.schemas import TrailerReadSchema, TrailerCreateSchema, TrailerFilterSchema, \
-    TrailerUpdateSchema
-
+from src.domains.trailers.schemas import TrailerCreateSchema, TrailerFilterSchema, TrailerReadSchema, TrailerUpdateSchema
 
 trailer_router: APIRouter = router_factory(
     prefix="/trailers",

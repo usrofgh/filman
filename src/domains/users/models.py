@@ -1,5 +1,6 @@
-from src.core.base_model import BaseModel
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from src.core.base_model import BaseModel
 
 
 class UserModel(BaseModel):

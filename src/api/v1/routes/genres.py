@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 
 from src.api.router_factory import router_factory
-from src.domains.auth.dependencies import get_current_admin_user, get_current_active_user
+from src.domains.auth.dependencies import get_current_active_user, get_current_admin_user
 from src.domains.genres.dependencies import GenreServiceDep
-from src.domains.genres.schemas import GenreReadSchema, GenreCreateSchema, GenreFilterSchema, GenreUpdateSchema
-
+from src.domains.genres.schemas import GenreCreateSchema, GenreFilterSchema, GenreReadSchema, GenreUpdateSchema
 
 genre_router: APIRouter = router_factory(
     prefix="/genres",

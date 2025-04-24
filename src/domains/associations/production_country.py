@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, ForeignKey
+from sqlalchemy import Column, ForeignKey, Table
 from sqlalchemy.dialects.postgresql import UUID
 
 from src.core.base_model import BaseModel
