@@ -20,17 +20,17 @@ class ProductionModel(BaseModel):
     release_year: Mapped[int]
 
     category_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("categories.id"))
-    category: Mapped["CategoryModel"] = relationship(back_populates="productions")
+    category: Mapped["CategoryModel"] = relationship(back_populates="productions", lazy="selectin")
 
-    trailer: Mapped["TrailerModel"] = relationship(back_populates="production", uselist=False)
-    genres: Mapped[list["GenreModel"]] = relationship(secondary=production_genre_associations, back_populates="productions")
+    trailer: Mapped["TrailerModel"] = relationship(back_populates="production", uselist=False, lazy="selectin")
+    genres: Mapped[list["GenreModel"]] = relationship(secondary=production_genre_associations, back_populates="productions", lazy="selectin")
 
-    production_person_associations: Mapped[list["ProductionPersonAssociation"]] = relationship(back_populates="production")
+    production_person_associations: Mapped[list["ProductionPersonAssociation"]] = relationship(back_populates="production", lazy="selectin")
 
-    rating_associations: Mapped[list["ProductionRatingAssociation"]] = relationship(back_populates="production")
+    rating_associations: Mapped[list["ProductionRatingAssociation"]] = relationship(back_populates="production", lazy="selectin")
 
-    countries: Mapped[list["CountryModel"]] = relationship(secondary=production_country_associations, back_populates="productions")
-    comments: Mapped[list["CommentModel"]] = relationship(back_populates="production")
+    countries: Mapped[list["CountryModel"]] = relationship(secondary=production_country_associations, back_populates="productions", lazy="selectin")
+    comments: Mapped[list["CommentModel"]] = relationship(back_populates="production", lazy="selectin")
 
     def __str__(self):
         return self.name

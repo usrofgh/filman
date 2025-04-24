@@ -16,8 +16,8 @@ class PersonModel(BaseModel):
     photo_url: Mapped[str | None]
 
     birth_country_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("countries.id"))
-    birth_country: Mapped["CountryModel"] = relationship()
-    production_person_associations: Mapped[list["ProductionPersonAssociation"]] = relationship(back_populates="person")
+    birth_country: Mapped["CountryModel"] = relationship(lazy="selectin")
+    production_person_associations: Mapped[list["ProductionPersonAssociation"]] = relationship(back_populates="person", lazy="selectin")
 
     def __str__(self):
         return self.name

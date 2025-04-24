@@ -14,6 +14,6 @@ class CommentModel(BaseModel):
     production_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("productions.id"))
     content: Mapped[str]
 
-    user: Mapped["UserModel"] = relationship(back_populates="comments")
-    production: Mapped["ProductionModel"] = relationship(back_populates="comments")
-    reactions: Mapped[list["CommentReactionModel"]] = relationship(back_populates="comment")
+    user: Mapped["UserModel"] = relationship(back_populates="comments", lazy="selectin")
+    production: Mapped["ProductionModel"] = relationship(back_populates="comments", lazy="selectin")
+    reactions: Mapped[list["CommentReactionModel"]] = relationship(back_populates="comment", lazy="selectin")

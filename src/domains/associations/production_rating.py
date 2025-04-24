@@ -16,8 +16,8 @@ class ProductionRatingAssociation(BaseModel):
     rating: Mapped[float]
     count_votes: Mapped[int]
 
-    production: Mapped["ProductionModel"] = relationship(back_populates="rating_associations")
-    rating_company: Mapped["RatingCompanyModel"] = relationship(back_populates="rating_associations")
+    production: Mapped["ProductionModel"] = relationship(back_populates="rating_associations", lazy="selectin")
+    rating_company: Mapped["RatingCompanyModel"] = relationship(back_populates="rating_associations", lazy="selectin")
 
     __table_args__ = (
         UniqueConstraint("production_id", "rating_company_id",name="unique_production_rating_companies"),

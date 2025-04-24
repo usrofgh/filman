@@ -11,4 +11,4 @@ class TrailerModel(BaseModel):
     duration_sec: Mapped[int]
 
     production_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("productions.id"))
-    production: Mapped["ProductionModel"] = relationship(back_populates="trailer")
+    production: Mapped["ProductionModel"] = relationship(back_populates="trailer", lazy="selectin")

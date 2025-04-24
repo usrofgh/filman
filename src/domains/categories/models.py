@@ -8,7 +8,7 @@ class CategoryModel(BaseModel):
 
     name: Mapped[str] = mapped_column(unique=True, index=True)
 
-    productions: Mapped[list["ProductionModel"]] = relationship(back_populates="category")
+    productions: Mapped[list["ProductionModel"]] = relationship(back_populates="category", lazy="selectin")
 
     # category_genre_associations: Mapped[list["CategoryGenreAssociation"]] = relationship(back_populates="category", lazy="selectin")
     # genres = association_proxy("category_genre_associations", "genre")

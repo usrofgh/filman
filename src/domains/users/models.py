@@ -9,7 +9,7 @@ class UserModel(BaseModel):
     hashed_password: Mapped[str]
     is_active: Mapped[bool] = mapped_column(default=False)
     is_admin: Mapped[bool] = mapped_column(default=False)
-
+    avatar_url: Mapped[str] = mapped_column(nullable=True)
     comments: Mapped[list["CommentModel"]] = relationship(back_populates="user", lazy="selectin")
     comment_reactions: Mapped[list["CommentReactionModel"]] = relationship(back_populates="user", lazy="selectin")
 

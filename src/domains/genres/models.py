@@ -23,10 +23,8 @@ class GenreModel(BaseModel):
     productions: Mapped[list["ProductionModel"]] = relationship(
         back_populates="genres",
         secondary=production_genre_associations,
+        lazy="selectin"
     )
-
-    # category_genre_associations: Mapped[list["CategoryGenreAssociation"]] = relationship(back_populates="genre")
-    # categories = association_proxy("category_genre_associations", "category")
 
     def __str__(self):
         return self.name

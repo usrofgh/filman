@@ -13,8 +13,8 @@ class CommentReactionModel(BaseModel):
     reaction: Mapped[bool | None]
 
 
-    user: Mapped["UserModel"] = relationship(back_populates="comment_reactions")
-    comment: Mapped["CommentModel"] = relationship(back_populates="reactions")
+    user: Mapped["UserModel"] = relationship(back_populates="comment_reactions", lazy="selectin")
+    comment: Mapped["CommentModel"] = relationship(back_populates="reactions", lazy="selectin")
 
 
 
