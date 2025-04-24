@@ -36,7 +36,7 @@ exclude = [".venv", "__pycache__", ".idea", "migrations"]
 
 [tool.ruff.lint]
 extend-select = ["E501"]
-ignore = ["F821", "F401"]
+ignore = ["F821", "F811"]
 
 select = [
     # pycodestyle
