@@ -27,6 +27,7 @@ class UserCreateDBSchema(BaseModel):
 class UserReadSchema(BaseModel):
     id: UUID4
     email: EmailStr
+    avatar_url: str | None
     is_active: bool
     is_admin: bool
     comments: list
