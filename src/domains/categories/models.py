@@ -1,4 +1,3 @@
-from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.core.base_model import BaseModel

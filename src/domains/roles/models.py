@@ -1,10 +1,4 @@
-from datetime import datetime
-from uuid import uuid4
-
-from sqlalchemy import func
-from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from sqlalchemy.types import DateTime
 
 from src.core.base_model import BaseModel
 

@@ -1,4 +1,4 @@
-from datetime import UTC, datetime, timezone
+from datetime import UTC, datetime
 
 import jwt
 from asyncpg.pgproto.pgproto import timedelta
