@@ -20,9 +20,6 @@ async def get_current_user(
     try:
         payload = jwt.decode(token, settings.SECRET_KEY.get_secret_value(), algorithms=[settings.ALGORITHM])
         user_id = payload.get("sub")
-        exp = payload.get("exp")
-        if user_id is None or exp < int(datetime.now().timestamp()):
-            raise CredentialsValidation
     except InvalidTokenError:
         raise CredentialsValidation
 
