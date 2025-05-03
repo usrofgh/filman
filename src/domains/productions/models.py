@@ -1,4 +1,5 @@
 from datetime import datetime
+from enum import StrEnum, auto
 
 from sqlalchemy import ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
@@ -10,6 +11,10 @@ from src.domains.associations.production_country import production_country_assoc
 from src.domains.associations.production_genre import production_genre_associations
 
 
+class PublishStatus(StrEnum):
+    drafted = auto()
+    published = auto()
+
 class ProductionModel(BaseModel):
     __tablename__ = "productions"
 
@@ -18,11 +23,10 @@ class ProductionModel(BaseModel):
     description: Mapped[str]
     duration_min: Mapped[int]
     release_date: Mapped[datetime.date] = mapped_column(Date)
-    release_year: Mapped[int]
-
     category_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("categories.id"))
     category: Mapped["CategoryModel"] = relationship(back_populates="productions", lazy="selectin")
 
+    publish_status: Mapped[PublishStatus] = mapped_column(nullable=False, server_default=PublishStatus.drafted)
     trailer: Mapped["TrailerModel"] = relationship(back_populates="production", uselist=False, lazy="selectin")
     genres: Mapped[list["GenreModel"]] = relationship(secondary=production_genre_associations, back_populates="productions", lazy="selectin")
 
