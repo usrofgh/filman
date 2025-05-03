@@ -2,7 +2,7 @@ from abc import ABC
 from typing import Generic, TypeVar
 
 from pydantic import UUID4
-from sqlalchemy import delete, select, update
+from sqlalchemy import delete, select, update, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.core.base_model import BaseModel
@@ -21,7 +21,7 @@ class BaseRepository(ABC, Generic[ModelG]):
     async def create(self, obj_data: dict) -> ModelG:
         obj = self.MODEL(**obj_data)
         self._db.add(obj)
-        await self._db.commit()
+        await self._db.flush()
         await self._db.refresh(obj)
         return obj
 
@@ -43,7 +43,7 @@ class BaseRepository(ABC, Generic[ModelG]):
     async def update(self, id_: UUID4, update_data: dict) -> ModelG:
         stmt = update(self.MODEL).where(self.MODEL.id == id_).values(**update_data).returning(self.MODEL)
         result = await self._db.execute(stmt)
-        await self._db.commit()
+        await self._db.flush()
 
         updated_record = result.scalars().first()
         return updated_record
