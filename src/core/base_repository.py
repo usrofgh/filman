@@ -54,4 +54,8 @@ class BaseRepository(ABC, Generic[ModelG]):
     async def delete(self, id_: UUID4) -> None:
         stmt = delete(self.MODEL).where(self.MODEL.id == id_)
         await self._db.execute(stmt)
-        await self._db.commit()
+
+    async def count(self, **filters) -> int:
+        stmt = select(func.count("*")).select_from(self.MODEL).filter_by(**filters)
+        result = await self._db.execute(stmt)
+        return result.scalar_one()
