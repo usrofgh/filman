@@ -1,4 +1,4 @@
-from src.domains.associations import production_country, production_genre, production_person, production_rating
+from src.domains.associations import production_country, production_genre, production_person, production_rating, user_favorite
 from src.domains.categories import models
 from src.domains.comment_reactions import models
 from src.domains.comments import models
