@@ -41,8 +41,13 @@ class BaseService(
             raise DoesNotExist(self._subject)
         return db_record
 
-    async def get_many(self, filter_schema: FilterSchemaG) -> list[ModelG]:
-        return await self._repository.get_all(**filter_schema.model_dump(exclude_none=True))
+    async def get_many(self, filter_schema: FilterSchemaG) -> tuple[list[ModelG], int]:
+        filters = {**filter_schema.model_dump(exclude_none=True)}
+        offset = filters.pop("offset", 0)
+        limit = filters.pop("limit", 20)
+        total = await self._repository.count(**filters)
+        items = await self._repository.get_all(**filters, offset=offset, limit=limit)
+        return items, total
 
     async def update_one(self, id_: UUID4, update_schema: UpdateSchemaG) -> ModelG:
         await self.get_by_id(id_)
