@@ -12,7 +12,6 @@ class PersonModel(BaseModel):
 
     name: Mapped[str] = mapped_column(index=True)
     birthdate: Mapped[datetime.date] = mapped_column(Date, nullable=True)
-    bio: Mapped[str | None]
     photo_url: Mapped[str | None]
 
     birth_country_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("countries.id"))
