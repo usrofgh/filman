@@ -1,8 +1,12 @@
-from datetime import date
+from datetime import date, datetime
 
 from pydantic import UUID4, BaseModel
 
-from src.domains.persons.schemas import PersonRoleSchema
+from src.api.v1.pagination import PaginationBaseModel
+from src.domains.categories.schemas import CategoryReadSchema
+from src.domains.countries.schemas import CountryReadSchema
+from src.domains.genres.schemas import GenreReadSchema
+from src.domains.productions.models import PublishStatus
 
 
 class ProductionCreateSchema(BaseModel):
@@ -11,41 +15,48 @@ class ProductionCreateSchema(BaseModel):
     description: str
     duration_min: int
     release_date: date
-    release_year: int
     category_id: UUID4
     genre_ids: list[UUID4]
     country_ids: list[UUID4]
-    # persons: list[PersonRoleSchema]
 
 
-
-class ProductionReadSchema(BaseModel):
+class ProductionListSchema(BaseModel):
     id: UUID4
     name: str
     poster_url: str
     description: str
     duration_min: int
-    release_year: int
     release_date: date
-    category_id: UUID4
-    genre_ids: list[UUID4]
-    country_ids: list[UUID4]
-    comment_ids: list[UUID4]
-    persons: list[PersonRoleSchema]
-
-    created_at: date
-    updated_at: date | None = None
+    category: CategoryReadSchema
+    genres: list[GenreReadSchema]
+    countries: list[CountryReadSchema]
+    publish_status: PublishStatus
 
 
-class ProductionFilterSchema(BaseModel):
+class ProductionDetailSchema(BaseModel):
+    id: UUID4
     name: str
+    poster_url: str
+    description: str
     duration_min: int
-    release_year: int
     release_date: date
-    category_id: UUID4
-    genre_ids: list[UUID4]
-    country_ids: list[UUID4]
-    persons: list[PersonRoleSchema]
+    category: CategoryReadSchema
+    genre_ids: list[GenreReadSchema] | None = None
+    countries: list[CountryReadSchema] | None = None
+    comment_ids: list[UUID4] | None = None
+    persons: list[UUID4] | None = None
+    created_at: datetime
+    publish_status: PublishStatus
+
+
+class ProductionFilterSchema(PaginationBaseModel):
+    name: str | None = None
+    duration_min: int | None = None
+    release_date: date | None = None
+    category_id: UUID4 | None = None
+    genre_ids: list[UUID4] | None = None
+    country_ids: list[UUID4] | None = None
+    persons: list[UUID4] | None = None
 
 
 

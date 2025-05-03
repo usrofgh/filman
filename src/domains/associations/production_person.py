@@ -15,6 +15,7 @@ class ProductionPersonAssociation(BaseModel):
     production_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("productions.id"))
     person_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("persons.id"))
     role_id: Mapped[UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("roles.id"))
+    actor_name: Mapped[str | None]
 
     production: Mapped["ProductionModel"] = relationship(back_populates="production_person_associations", lazy="selectin")
     person:  Mapped["PersonModel"] = relationship(back_populates="production_person_associations", lazy="selectin")
@@ -23,3 +24,6 @@ class ProductionPersonAssociation(BaseModel):
     __table_args__ = (
         UniqueConstraint("production_id", "person_id", "role_id", name="unique_production_person_role"),
     )
+
+    def __str__(self):
+        return str(self.id)

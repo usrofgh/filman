@@ -1,7 +1,7 @@
 from src.core.base_service import BaseService
 from src.domains.productions.models import ProductionModel
 from src.domains.productions.repository import ProductionRepository
-from src.domains.productions.schemas import ProductionCreateSchema, ProductionFilterSchema, ProductionUpdateSchema
+from src.domains.productions.schemas import ProductionCreateSchema, ProductionUpdateSchema, ProductionFilterSchema
 
 
 class ProductionService(

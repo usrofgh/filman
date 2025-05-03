@@ -16,13 +16,13 @@ class RoleAdmin(ModelView, model=RoleModel):
     column_list = [
         RoleModel.id,
         RoleModel.name,
-        RoleModel.production_person_associations,
         RoleModel.created_at,
         RoleModel.updated_at
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        RoleModel.production_person_associations,
     ]
 
     column_searchable_list = [

@@ -18,13 +18,13 @@ class RatingCompanyAdmin(ModelView, model=RatingCompanyModel):
     column_list = [
         RatingCompanyModel.id,
         RatingCompanyModel.name,
-        RatingCompanyModel.rating_associations,
         RatingCompanyModel.created_at,
         RatingCompanyModel.updated_at
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        RatingCompanyModel.rating_associations,
     ]
 
     column_searchable_list = [

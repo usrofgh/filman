@@ -1,31 +1,40 @@
-from typing import Annotated, Literal, TypeVar
+from typing import Literal, TypeVar
 
 import inflect
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Request
 from fastapi.params import Path, Query
 from pydantic import UUID4
 from starlette import status
+from typing_extensions import Annotated
 
+from src.api.v1.pagination import PaginatedResponseSchema
 from src.core.base_service import BaseService
 from src.core.generics import CreateSchemaG, FilterSchemaG, ReadSchemaG, UpdateSchemaG
 
 ServiceDepG = TypeVar("ServiceDepG", bound=BaseService)
 
+
 def create_deps(deps: list[callable]) -> list:
     return [Depends(dep) for dep in deps]
 
+
 def router_factory(
     prefix: str,
-    tags: list[str],
-    id_name: str,
-    service_dep: ServiceDepG,
-    include_endpoints: list[Literal["create", "list", "get", "update", "patch", "delete"]],
+    tags: list[str] | None = None,
+    include_endpoints: list[Literal["create", "list", "get", "update", "patch", "delete"]] | None = None,
+    service_dep: ServiceDepG | None = None,
+    id_name: str | None = None,
     read_schema: type(ReadSchemaG) | None = None,
     create_schema_: type(CreateSchemaG) | None = None,
     filter_schema_: type(FilterSchemaG) | None = None,
     update_schema_: type(UpdateSchemaG) | None = None,
     dependencies: dict[str, list[Depends]] | None = None
 ) -> APIRouter:
+    if not tags:
+        tags = []
+    if not include_endpoints:
+        include_endpoints = []
+
     router = APIRouter(
         prefix=prefix,
         tags=tags
@@ -50,16 +59,20 @@ def router_factory(
     if "list" in include_endpoints:
         @router.get(
             path="",
-            response_model=list[read_schema],
+            response_model=PaginatedResponseSchema[read_schema],
             status_code=status.HTTP_200_OK,
             dependencies=create_deps(dependencies.get("list", [])),
             summary=f"Get {resource}"
         )
         async def get_items(
+            request: Request,
             service: service_dep,
-            filter_schema: Annotated[filter_schema_, Query()]
+            filter_schema: Annotated[filter_schema_, Query()],
         ):
-            return await service.get_many(filter_schema)
+            items, total = await service.get_many(filter_schema)
+            meta_schema = filter_schema.make_meta(request, total)
+            response = PaginatedResponseSchema[read_schema](items=items, meta=meta_schema)
+            return response
 
     if "get" in include_endpoints:
         @router.get(

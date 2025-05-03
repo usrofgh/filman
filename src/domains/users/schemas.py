@@ -3,6 +3,9 @@ from datetime import datetime
 from pydantic import UUID4, BaseModel, EmailStr, Field, field_validator
 
 from src.domains.auth.exceptions import PasswordMismatch
+from src.domains.comment_reactions.schemas import CommentReactionReadSchema
+from src.domains.comments.schemas import CommentReadSchema
+from src.domains.productions.schemas import ProductionDetailSchema
 
 
 class UserCreateSchema(BaseModel):
@@ -28,8 +31,9 @@ class UserReadSchema(BaseModel):
     avatar_url: str | None
     is_active: bool
     is_admin: bool
-    comments: list
-    comment_reactions: list
+    comments: list[CommentReadSchema]
+    comment_reactions: list[CommentReactionReadSchema]
+    favorite_productions: list[ProductionDetailSchema]
     created_at: datetime
     updated_at: datetime | None
 

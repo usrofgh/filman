@@ -12,8 +12,8 @@ class ProductionAdmin(ModelView, model=ProductionModel):
 
 
     column_labels = {
-        ProductionModel.production_person_associations: "Production ↔ Person",
-        ProductionModel.rating_associations: "Production ↔ Ratings"
+        ProductionModel.production_person_associations: "Cast",
+        ProductionModel.rating_associations: "Ratings"
     }
 
     column_list = [
@@ -24,19 +24,19 @@ class ProductionAdmin(ModelView, model=ProductionModel):
         ProductionModel.duration_min,
         ProductionModel.description,
         ProductionModel.release_date,
-        ProductionModel.release_year,
         ProductionModel.category,
         ProductionModel.genres,
-        ProductionModel.production_person_associations,
         ProductionModel.rating_associations,
         ProductionModel.countries,
-        ProductionModel.comments,
         ProductionModel.created_at,
         ProductionModel.updated_at,
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        ProductionModel.favorited_by,
+        ProductionModel.comments,
+        ProductionModel.production_person_associations,
     ]
 
     column_searchable_list = [
@@ -50,15 +50,13 @@ class ProductionAdmin(ModelView, model=ProductionModel):
     form_columns = [
         ProductionModel.name,
         ProductionModel.poster_url,
-        ProductionModel.trailer,
         ProductionModel.duration_min,
         ProductionModel.description,
         ProductionModel.release_date,
-        ProductionModel.release_year,
         ProductionModel.category,
         ProductionModel.genres,
-        ProductionModel.production_person_associations,
-        ProductionModel.rating_associations,
         ProductionModel.countries,
-        ProductionModel.comments,
+        ProductionModel.favorited_by,
     ]
+
+

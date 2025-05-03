@@ -16,6 +16,7 @@ class ProductionPersonAdmin(ModelView, model=PPA):
         PPA.production,
         PPA.person,
         PPA.role,
+        PPA.actor_name,
     ]
 
     column_details_list = [
@@ -23,6 +24,7 @@ class ProductionPersonAdmin(ModelView, model=PPA):
     ]
 
     column_searchable_list = [
+        PPA.actor_name
     ]
 
     column_sortable_list = [

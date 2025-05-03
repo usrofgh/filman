@@ -9,6 +9,7 @@ from sqlalchemy.types import Date
 from src.core.base_model import BaseModel
 from src.domains.associations.production_country import production_country_associations
 from src.domains.associations.production_genre import production_genre_associations
+from src.domains.associations.user_favorite import user_favorite_production_associations
 
 
 class PublishStatus(StrEnum):
@@ -36,6 +37,8 @@ class ProductionModel(BaseModel):
 
     countries: Mapped[list["CountryModel"]] = relationship(secondary=production_country_associations, back_populates="productions", lazy="selectin")
     comments: Mapped[list["CommentModel"]] = relationship(back_populates="production", lazy="selectin")
-
+    favorited_by: Mapped[list["UserModel"]] = relationship(
+        back_populates="favorite_productions", secondary=user_favorite_production_associations, lazy="selectin"
+    )
     def __str__(self):
         return self.name

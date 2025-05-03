@@ -17,14 +17,15 @@ class UserAdmin(ModelView, model=UserModel):
         UserModel.email,
         UserModel.is_active,
         UserModel.is_admin,
-        UserModel.comments,
-        UserModel.comment_reactions,
         UserModel.created_at,
         UserModel.updated_at
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        UserModel.comments,
+        UserModel.comment_reactions,
+        UserModel.favorite_productions,
     ]
 
     column_searchable_list = [

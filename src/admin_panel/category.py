@@ -13,12 +13,12 @@ class CategoryAdmin(ModelView, model=CategoryModel):
 
     column_list = [
         CategoryModel.id,
-        CategoryModel.name,
-        CategoryModel.productions
+        CategoryModel.name
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        CategoryModel.productions
     ]
 
     column_searchable_list = [
@@ -32,6 +32,5 @@ class CategoryAdmin(ModelView, model=CategoryModel):
     ]
 
     form_columns = [
-        CategoryModel.name,
-        CategoryModel.productions,
+        CategoryModel.name
     ]

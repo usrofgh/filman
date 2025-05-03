@@ -11,7 +11,7 @@ class PersonAdmin(ModelView, model=PersonModel):
     page_size_options = [25, 50, 100]
 
     column_labels = {
-        PersonModel.production_person_associations: "Production ↔ Person"
+        PersonModel.production_person_associations: "Productions"
     }
 
 
@@ -20,15 +20,14 @@ class PersonAdmin(ModelView, model=PersonModel):
         PersonModel.name,
         PersonModel.birthdate,
         PersonModel.birth_country,
-        PersonModel.bio,
         PersonModel.photo_url,
-        PersonModel.production_person_associations,
         PersonModel.created_at,
         PersonModel.updated_at
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        PersonModel.production_person_associations,
     ]
 
     column_searchable_list = [
@@ -43,6 +42,5 @@ class PersonAdmin(ModelView, model=PersonModel):
         PersonModel.name,
         PersonModel.birthdate,
         PersonModel.birth_country,
-        PersonModel.bio,
         PersonModel.photo_url
     ]

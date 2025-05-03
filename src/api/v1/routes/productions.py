@@ -3,13 +3,14 @@ from fastapi import APIRouter
 from src.api.router_factory import router_factory
 from src.domains.auth.dependencies import get_current_active_user, get_current_admin_user
 from src.domains.productions.dependencies import ProductionServiceDep
-from src.domains.productions.schemas import ProductionCreateSchema, ProductionFilterSchema, ProductionReadSchema, ProductionUpdateSchema
+from src.domains.productions.schemas import ProductionCreateSchema, ProductionFilterSchema, ProductionDetailSchema, \
+    ProductionUpdateSchema, ProductionListSchema
 
 production_router: APIRouter = router_factory(
     prefix="/productions",
     tags=["Productions"],
     id_name="production_id",
-    read_schema=ProductionReadSchema,
+    read_schema=ProductionListSchema,
     create_schema_=ProductionCreateSchema,
     filter_schema_=ProductionFilterSchema,
     update_schema_=ProductionUpdateSchema,

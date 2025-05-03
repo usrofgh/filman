@@ -12,6 +12,7 @@ from src.admin_panel.production import ProductionAdmin
 from src.admin_panel.production_person import ProductionPersonAdmin
 from src.admin_panel.production_rating import ProductionRatingAdmin
 from src.admin_panel.rating_company import RatingCompanyAdmin
+from src.admin_panel.reaction import CommentReactionAdmin
 from src.admin_panel.role import RoleAdmin
 from src.admin_panel.trailer import TrailerAdmin
 from src.admin_panel.user import UserAdmin
@@ -25,7 +26,8 @@ app.include_router(v1_router)
 admin = Admin(app, engine, authentication_backend=authentication_backend)
 admin_pages = [
     UserAdmin, ProductionAdmin, TrailerAdmin, CategoryAdmin, GenreAdmin, PersonAdmin,
-    RoleAdmin, RatingCompanyAdmin, CountryAdmin, CommentAdmin, ProductionPersonAdmin, ProductionRatingAdmin
+    RoleAdmin, RatingCompanyAdmin, CountryAdmin, CommentAdmin, ProductionPersonAdmin,
+    ProductionRatingAdmin, CommentReactionAdmin
 ]
 [admin.add_view(page) for page in admin_pages]
 

@@ -20,7 +20,8 @@ class CommentAdmin(ModelView, model=CommentModel):
     ]
 
     column_details_list = [
-        *column_list
+        *column_list,
+        CommentModel.reactions
     ]
 
     column_searchable_list = [
