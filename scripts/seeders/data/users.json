@@ -1,0 +1,23 @@
+[
+  {
+    "email": "user@example.com",
+    "hashed_password": "$2b$12$mfI7rZVGL2MdiofotKqM2u/nqmgBpmSUJbplocwUOVSjwtGbmWSuq",
+    "avatar_url": "https://docs.gravatar.com/wp-content/uploads/2025/02/avatar-mysteryperson-20250210-256.png",
+    "is_active": true,
+    "is_admin": true
+  },
+  {
+    "email": "not_active_visiotr@example.com",
+    "hashed_password": "$2b$12$mfI7rZVGL2MdiofotKqM2u/nqmgBpmSUJbplocwUOVSjwtGbmWSuq",
+    "avatar_url": "https://docs.gravatar.com/wp-content/uploads/2025/02/avatar-mysteryperson-20250210-256.png",
+    "is_active": false,
+    "is_admin": false
+  },
+  {
+    "email": "active_visiotr@example.com",
+    "hashed_password": "$2b$12$mfI7rZVGL2MdiofotKqM2u/nqmgBpmSUJbplocwUOVSjwtGbmWSuq",
+    "avatar_url": "https://docs.gravatar.com/wp-content/uploads/2025/02/avatar-mysteryperson-20250210-256.png",
+    "is_active": true,
+    "is_admin": false
+  }
+]

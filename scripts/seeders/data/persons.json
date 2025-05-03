@@ -1,0 +1,40 @@
+[
+  {
+    "deps": [
+      {
+        "source": "country_code",
+        "lookup_model": "CountryModel",
+        "lookup_field": "country_code",
+        "target": "birth_country_id"
+      }
+    ]
+  },
+  {
+    "name": "Christopher Nolan",
+    "birthdate": "1970-07-30",
+    "photo_url": "https://m.media-amazon.com/images/M/MV5BNjE3NDQyOTYyMV5BMl5BanBnXkFtZTcwODcyODU2Mw@@._V1_FMjpg_UX289_.jpg",
+    "birth_country_id": null,
+    "country_code": "GB"
+  },
+  {
+    "name": "Lynda Obst",
+    "birthdate": "1950-04-14",
+    "photo_url": "https://m.media-amazon.com/images/M/MV5BMTcyNjg1MzQxMV5BMl5BanBnXkFtZTYwNTUwNzgy._V1_FMjpg_UX254_.jpg",
+    "birth_country_id": null,
+    "country_code": "US"
+  },
+  {
+    "name": "Emma Thomas",
+    "birthdate": "1971-12-09",
+    "photo_url": "https://m.media-amazon.com/images/M/MV5BOGMyOGI4YzUtZWU3NS00NDAyLWExOWQtMDdmYWJiODY5MmI3XkEyXkFqcGc@._V1_FMjpg_UY1928_.jpg",
+    "birth_country_id": null,
+    "country_code": "GB"
+  },
+    {
+    "name": "Matthew McConaughey",
+    "birthdate": "1969-11-04",
+    "photo_url": "https://img001.prntscr.com/file/img001/QPy-iFVRQLS_twV9qDIKAg.png",
+    "birth_country_id": null,
+    "country_code": "US"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "deps": [
+      {
+        "source": "production_value",
+        "lookup_model": "ProductionModel",
+        "lookup_field": "name",
+        "target": "production_id"
+      },
+      {
+        "source": "person_value",
+        "lookup_model": "PersonModel",
+        "lookup_field": "name",
+        "target": "person_id"
+      },
+      {
+        "source": "role_value",
+        "lookup_model": "RoleModel",
+        "lookup_field": "name",
+        "target": "role_id"
+      }
+    ]
+  },
+  {
+    "production_id": null,
+    "person_id": null,
+    "role_id": null,
+    "production_value": "Interstellar",
+    "person_value": "Christopher Nolan",
+    "role_value": "Director"
+  },
+  {
+    "production_id": null,
+    "person_id": null,
+    "role_id": null,
+    "production_value": "Interstellar",
+    "person_value": "Christopher Nolan",
+    "role_value": "Producer"
+  },
+  {
+    "production_id": null,
+    "person_id": null,
+    "role_id": null,
+    "production_value": "Interstellar",
+    "person_value": "Lynda Obst",
+    "role_value": "Producer"
+  },
+  {
+    "production_id": null,
+    "person_id": null,
+    "role_id": null,
+    "production_value": "Interstellar",
+    "person_value": "Emma Thomas",
+    "role_value": "Producer"
+  },
+  {
+    "production_id": null,
+    "person_id": null,
+    "role_id": null,
+    "actor_name": "Cooper",
+    "production_value": "Interstellar",
+    "person_value": "Matthew McConaughey",
+    "role_value": "Actor"
+  }
+]

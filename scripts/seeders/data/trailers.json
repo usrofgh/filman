@@ -1,0 +1,18 @@
+[
+  {
+    "deps": [
+      {
+        "source": "production_name",
+        "lookup_model": "ProductionModel",
+        "lookup_field": "name",
+        "target": "production_id"
+      }
+    ]
+  },
+  {
+    "production_id": null,
+    "production_name": "Interstellar",
+    "duration_sec": 147,
+    "video_url": "https://imdb-video.media-imdb.com/vi1586278169/1434659607842-pgv4ql-1616202363366.mp4?Expires=1746019947&Signature=V3nQ1BEKZCh9jn8xkYKvX5k9CVGqJUqVEqPzntikIc-lC7Yk7FlcZb8TOSnWWsVkpOMtZPhkL4SJdtbt4rmRsRgHRwBfRKhmW4qdM9Ex6c0V3NG6e9wIF4I5zE~H8mzO57muIMEA~F6TrwyHH54kYtIy6LgPzaIYehOjEM2oCskWlpchQdbgX713lGF6krqeerz9JJS5Gcu5FVLSI62TBFO70cNAcYjtwIc~zwY2NcQT7h1VFONPLB90D7ci~pUvC3yATJhRzjQDZCxP0yUhDTSs7-CKgaoerT~AJINrqb7S6Hrr~bnq2ktL3tNSuVAVzP5WBSYfjjAnwmOLC0Umjw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+  }
+]

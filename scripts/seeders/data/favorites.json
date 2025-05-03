@@ -1,0 +1,25 @@
+[
+  {
+    "deps": [
+      {
+        "source": "user_email",
+        "lookup_model": "UserModel",
+        "lookup_field": "email",
+        "target": "user_id"
+      },
+      {
+        "source": "production_value",
+        "lookup_model": "ProductionModel",
+        "lookup_field": "name",
+        "target": "production_id"
+      }
+    ]
+  },
+  {
+    "user_id": null,
+    "production_id": null,
+
+    "user_email": "user@example.com",
+    "production_value": "Interstellar"
+  }
+]

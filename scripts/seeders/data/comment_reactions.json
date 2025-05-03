@@ -1,0 +1,18 @@
+[
+  {
+    "deps": [
+      {
+        "source": "user_email",
+        "lookup_model": "UserModel",
+        "lookup_field": "email",
+        "target": "user_id"
+      }
+    ]
+  },
+  {
+    "user_id": null,
+    "comment_id": "70c3cbea-6b91-4dc3-b9b9-2ea4e48d427d",
+    "reaction": true,
+    "user_email": "user@example.com"
+  }
+]

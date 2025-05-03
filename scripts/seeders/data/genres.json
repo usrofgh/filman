@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Action"
+  },
+  {
+    "name": "Horror"
+  },
+  {
+    "name": "Thriller"
+  },
+  {
+    "name": "Romance"
+  },
+  {
+    "name": "Drama"
+  },
+  {
+    "name": "Western"
+  },
+  {
+    "name": "Comedy"
+  },
+  {
+    "name": "Sci-Fi"
+  },
+  {
+    "name": "Fantasy"
+  },
+  {
+    "name": "Documentary"
+  },
+  {
+    "name": "Musical"
+  },
+  {
+    "name": "Romantic comedy"
+  },
+  {
+    "name": "Melodrama"
+  },
+  {
+    "name": "Cyberpunk"
+  },
+  {
+    "name": "Science"
+  },
+  {
+    "name": "Art-House"
+  }
+]

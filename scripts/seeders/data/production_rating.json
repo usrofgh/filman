@@ -1,0 +1,26 @@
+[
+  {
+    "deps": [
+      {
+        "source": "production_value",
+        "lookup_model": "ProductionModel",
+        "lookup_field": "name",
+        "target": "production_id"
+      },
+      {
+        "source": "rating_company_value",
+        "lookup_model": "RatingCompanyModel",
+        "lookup_field": "name",
+        "target": "rating_company_id"
+      }
+    ]
+  },
+  {
+    "production_id": null,
+    "rating_company_id": null,
+    "rating": 8.7,
+    "count_votes": 2300000,
+    "production_value": "Interstellar",
+    "rating_company_value": "imdb"
+  }
+]
