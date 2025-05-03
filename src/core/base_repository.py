@@ -36,7 +36,10 @@ class BaseRepository(ABC, Generic[ModelG]):
         return result.scalars().one_or_none()
 
     async def get_all(self, **filters) -> list[ModelG]:
-        stmt = select(self.MODEL).filter_by(**filters)
+        offset = filters.pop("offset")
+        limit = filters.pop("limit")
+        stmt = select(self.MODEL).filter_by(**filters).offset(offset).limit(limit)
+        stmt = stmt.limit(limit)
         result = await self._db.execute(stmt)
         return list(result.scalars().all())
 
